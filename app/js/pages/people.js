@@ -9,7 +9,7 @@ export async function employees(el) {
     defaults: { status: 'Onboarding', hire_date: today(), employment_type: 'Full-time' },
     extraActions: () => (isHR() ? h('button', { class: 'btn', onclick: () => exportCsv() }, 'Export CSV') : null),
   });
-  el.append(pageHead('Employees', 'The central record for every Go-Green employee. Click a person to open their full profile.'), tbl);
+  el.append(pageHead('Employees', 'The central record for every GO-Green employee. Click a person to open their full profile.'), tbl);
 }
 
 async function exportCsv() {

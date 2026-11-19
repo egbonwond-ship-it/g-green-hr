@@ -591,7 +591,7 @@ async function clock(ctx) {
 
 async function publicSettings() {
   const p = await payrollConfig();
-  const company = await db.getSetting('company', { name: 'Go-Green Technologies' });
+  const company = await db.getSetting('company', { name: 'GO-Green Technologies' });
   return { company, currency: p.currency, symbol: p.symbol, locale: p.locale };
 }
 

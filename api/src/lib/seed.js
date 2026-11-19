@@ -93,7 +93,7 @@ async function seed({ reset = false } = {}) {
   }
   console.log(`[seed] Seeding Go-Green Technologies demo data into ${db.location} ...`);
 
-  await db.setSetting('company', { name: 'Go-Green Technologies', legal_name: 'Go-Green Technologies Limited', address: 'Plot 12, Admiralty Way, Lekki Phase 1, Lagos', rc_number: 'RC 0000000', tin: '00000000-0001', timezone: 'Africa/Lagos' });
+  await db.setSetting('company', { name: 'GO-Green Technologies', legal_name: 'GO-Green Technologies', address: 'Lagos, Nigeria', email: 'info@go-greentechnologies.com', website: 'www.go-greentechnologies.com', phone: '0805 671 9672', rc_number: '', tin: '', timezone: 'Africa/Lagos' });
   await db.setSetting('payroll', DEFAULT_PAYROLL);
   await db.setSetting('leave_policy', { annual_days: 20, carry_over_max: 5, sick_days: 12, maternity_weeks: 16, paternity_days: 14 });
 

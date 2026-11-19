@@ -13,7 +13,7 @@ export async function showPayslip(id) {
   const row = (l, v, cls = '') => h('tr', { class: cls }, h('td', {}, l), h('td', { class: 'num' }, money(v, { cents: true })));
   const body = h('div', { class: 'payslip' },
     h('div', { style: { display: 'flex', justifyContent: 'space-between', gap: '16px', flexWrap: 'wrap', marginBottom: '14px' } },
-      h('div', {}, h('h2', {}, company?.name || 'Go-Green Technologies'), h('div', { class: 'muted small' }, company?.address || ''), h('div', { style: { marginTop: '8px' } }, h('b', {}, `Payslip · ${periodLabel(s.period)}`))),
+      h('div', {}, h('img', { src: '/logo-full.svg', alt: company?.name || 'GO-Green Technologies', style: { width: '200px', display: 'block', marginBottom: '6px' } }), h('div', { class: 'muted small' }, [company?.address, company?.email, company?.website].filter(Boolean).join(' · ')), h('div', { style: { marginTop: '8px' } }, h('b', {}, `Payslip · ${periodLabel(s.period)}`))),
       h('div', { style: { textAlign: 'right' } }, h('div', { class: 'muted small' }, 'Net pay'), h('div', { class: 'net' }, money(s.net, { cents: true })))),
     h('div', { class: 'kv', style: { marginBottom: '14px' } }, [['Employee', s.name], ['Employee no.', s.emp_no], ['Job title', s.job_title], ['Department', s.department], ['Bank', `${s.bank_name || ''} ${s.bank_account || ''}`], ['PFA / RSA PIN', `${s.pension_pfa || ''} ${s.pension_pin || ''}`], ['Tax ID', s.tax_id]].map(([k, v]) => h('div', {}, h('span', {}, k), h('b', {}, v || '—')))),
     h('div', { class: 'grid g2' },

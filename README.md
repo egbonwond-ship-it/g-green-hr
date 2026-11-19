@@ -1,6 +1,6 @@
 # Go-Green HR (`go-green-hr`)
 
-The HR portal for Go-Green Technologies. It runs as an **Azure Static Web App** named `go-green-hr`:
+The HR portal for GO-Green Technologies (www.go-greentechnologies.com). It uses the company logo and the website's brand fonts (Space Grotesk, Nunito) and colours. It runs as an **Azure Static Web App** named `go-green-hr`:
 
 - **Frontend:** a static single-page app in `app/`. Plain HTML, CSS and JavaScript, with no build step.
 - **API:** Azure Functions (Node 20, v4 programming model) in `api/`, served at `/api/*`.

@@ -67,12 +67,15 @@ function loginPage() {
   const demo = [['admin@gogreen.demo', 'Admin'], ['hr@gogreen.demo', 'HR Director'], ['payroll@gogreen.demo', 'Payroll officer (HR)'], ['manager@gogreen.demo', 'Line manager'], ['employee@gogreen.demo', 'Employee']];
   clear(root).append(h('div', { class: 'login' },
     h('div', { class: 'login-art' },
-      h('div', { class: 'brand', style: { color: '#fff' } }, h('span', { class: 'logo', style: { background: '#fff', color: '#1f7a4d' } }, '❦'), 'Go-Green HR'),
-      h('div', {}, h('h1', {}, 'One home for every Go-Green person, process and payslip.'),
-        h('ul', {}, ['Payroll with Nigerian PAYE, pension and NHF built in', 'Self-service leave, timesheets, payslips and benefits', 'Recruiting, onboarding and offboarding in one flow', 'Performance, learning, engagement and analytics', 'Compliance calendar, policy sign-off and audit trail'].map((x) => h('li', {}, x)))),
-      h('p', { class: 'small' }, 'Go-Green Technologies · Lagos · Abuja · Port Harcourt · Ibadan')),
+      h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px', flexWrap: 'wrap' } },
+        h('span', { class: 'logo-card' }, h('img', { src: '/logo-full.svg', alt: 'GO-Green Technologies' })),
+        h('span', { class: 'tagline' }, 'PEOPLE · PAY · TIME · TALENT')),
+      h('div', {}, h('div', { class: 'eyebrow' }, 'HR Portal'), h('h1', {}, 'One home for every GO-Green person, process and payslip.')),
+      h('div', { class: 'tiles' }, [['₦', 'Payroll, PAYE & pension'], ['☺', 'Employee self-service'], ['✚', 'Recruiting & onboarding'], ['◎', 'Performance & learning'], ['▤', 'Workforce analytics'], ['⚖', 'Compliance & audit trail']].map(([i, t]) => h('div', { class: 'tile' }, h('i', { 'aria-hidden': 'true' }, i), t))),
+      h('p', { class: 'small', style: { color: '#9fbfa8', margin: 0 } }, 'GO-Green Technologies · Lagos · Abuja · Port Harcourt · Ibadan')),
     h('div', { class: 'login-form' }, h('form', { onsubmit: submit },
-      h('h2', {}, 'Sign in'), h('p', { class: 'muted' }, 'Use your work email and password.'),
+      h('img', { class: 'logo-mobile', src: '/logo-full.svg', alt: 'GO-Green Technologies' }),
+      h('h2', {}, 'Sign in to GO-Green HR'), h('p', { class: 'muted' }, 'Use your work email and password.'),
       h('label', { class: 'field' }, h('span', {}, 'Email'), email),
       h('label', { class: 'field' }, h('span', {}, 'Password'), password),
       err, h('button', { class: 'btn primary big', type: 'submit' }, 'Sign in'),
@@ -83,7 +86,7 @@ function loginPage() {
 
 function shell() {
   const side = h('nav', { class: 'side', 'aria-label': 'Main' },
-    h('a', { class: 'brand', href: '#/' }, h('span', { class: 'logo' }, '❦'), h('div', {}, 'Go-Green HR', h('small', {}, state.meta.settings.company?.name || 'Go-Green Technologies'))),
+    h('a', { class: 'brand', href: '#/', 'aria-label': 'GO-Green HR home' }, h('span', { class: 'logo-card' }, h('img', { src: '/logo-full.svg', alt: 'GO-Green Technologies' })), h('span', { class: 'brand-sub' }, 'HR Portal')),
     NAV.map(([group, items]) => {
       const vis = items.filter(([, , , show]) => show());
       if (!vis.length) return null;
@@ -121,7 +124,7 @@ async function changePassword() {
 
 async function boot() {
   state.meta = await api('meta');
-  document.title = `${state.meta.settings.company?.name || 'Go-Green'} HR`;
+  document.title = 'GO-Green HR';
   shell();
 }
 

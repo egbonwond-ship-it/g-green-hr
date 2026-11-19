@@ -80,7 +80,7 @@ const inp = (label, value, attrs = {}) => { const i = h('input', { value: value 
 
 function companyForm(s) {
   const c = s.company || {};
-  const fields = ['name', 'legal_name', 'address', 'rc_number', 'tin'].map((k) => [k, ...inp({ name: 'Trading name', legal_name: 'Legal name', address: 'Registered address', rc_number: 'CAC RC number', tin: 'Company TIN' }[k], c[k])]);
+  const fields = ['name', 'legal_name', 'address', 'email', 'phone', 'website', 'rc_number', 'tin'].map((k) => [k, ...inp({ name: 'Trading name', legal_name: 'Legal name', address: 'Registered address', email: 'Contact email', phone: 'Phone', website: 'Website', rc_number: 'CAC RC number', tin: 'Company TIN' }[k], c[k])]);
   return card('Company profile', h('div', { class: 'form-grid' }, fields.map((f) => f[1])), h('div', { style: { marginTop: '14px' } }, h('button', { class: 'btn primary', onclick: () => save({ company: { ...c, ...Object.fromEntries(fields.map(([k, , i]) => [k, i.value])) } }) }, 'Save')));
 }
 
