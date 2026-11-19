@@ -1,0 +1,15 @@
+{
+  "name": "go-green-hr",
+  "version": "1.0.0",
+  "description": "Go-Green Technologies HR portal - Azure Static Web App (go-green-hr)",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix api install",
+    "start": "node dev-server.js",
+    "seed": "node api/src/lib/seed.js",
+    "reset-demo": "node api/src/lib/seed.js --reset",
+    "swa": "swa start app --api-location api",
+    "test": "node scripts/smoke-test.js"
+  },
+  "engines": { "node": ">=20" }
+}

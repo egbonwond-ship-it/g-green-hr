@@ -1,0 +1,7 @@
+node_modules/
+api/data/
+api/local.settings.json
+.env
+*.db
+*.db-shm
+*.db-wal

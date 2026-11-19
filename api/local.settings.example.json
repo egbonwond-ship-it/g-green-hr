@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "",
+    "JWT_SECRET": "replace-with-a-long-random-string",
+    "SQL_CONNECTION_STRING": ""
+  }
+}
